@@ -18,14 +18,20 @@ app.get(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const query = req.query.q;
-    const count = req.query.count ?? 20;
+    const params = new URLSearchParams({
+      lang: "en-US",
+      start: "0",
+      count: req.query.count ?? 20,
+      sortBy: "relevancy",
+      sortDir: "DESC",
+      keywords: req.query.q,
+    });
 
     return fetch(
-      `https://www.unrealengine.com/marketplace/api/assets?lang=en-US&start=0&count=${count}&sortBy=relevancy&sortDir=DESC&keywords=${query}`
+      `https://www.unrealengine.com/marketplace/api/assets?${params}`
     )
-      .then((res) => res.json())
-      .then(res.json)
+      .then((data) => data.json())
+      .then((data) => res.json(data))
       .catch((e) => {
         console.error(e);
         return res.status(400).json({ error: e.message });
