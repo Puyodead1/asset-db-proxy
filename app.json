@@ -1,0 +1,17 @@
+{
+  "name": "UE4 Marketplace Proxy",
+  "keywords": [],
+  "env": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "free"
+    }
+  }
+}

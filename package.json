@@ -1,0 +1,16 @@
+{
+  "name": "proxy",
+  "description": "Simple proxy for the Unreal Marketplace written in Node.JS",
+  "author": "Puyodead1",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.12.1",
+    "node-fetch": "2.6.2"
+  }
+}
